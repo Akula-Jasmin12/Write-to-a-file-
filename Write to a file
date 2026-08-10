@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // 1. Declare a file pointer
+    FILE *fptr;
+
+    // 2. Open the file in writing mode ("w")
+    fptr = fopen("output.txt", "w");
+
+    // 3. Error handling: check if the file opened successfully
+    if (fptr == NULL) {
+        printf("Error opening the file!\n");
+        return 1; // Exit the program with an error code
+    }
+
+    // 4. Write formatted text to the file
+    fprintf(fptr, "Hello, World!\n");
+    fprintf(fptr, "Writing an integer: %d\n", 42);
+
+    // 5. Close the file to flush buffers and save data
+    fclose(fptr);
+
+    printf("Data written successfully.\n");
+    return 0;
+}
